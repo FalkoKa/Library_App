@@ -1,23 +1,23 @@
 // APP
-let myLibrary = [];
+const myLibrary = [];
 
 function Book(title, author, pages, status) {
   this.title = title;
   this.author = author;
   this.pages = pages;
   this.status = status;
-  this.info = function () {
-    return `${title} by ${author}, ${pages} pages, ${status}.`;
-  };
 }
 
-function addBookToLibrary() {
-  let userInput = prompt("Please enter: Title, Author, Pages, Status");
-  myLibrary.push(new Book(userInput));
-  displayBook();
+function getBookFromInput() {
+  const title = document.querySelector("#title").value;
+  const author = document.querySelector("#author").value;
+  const pages = document.querySelector("#pages").value;
+  const status = document.querySelector("#is-read").checked;
+  return myLibrary.push(new Book(title, author, pages, status));
 }
 
 function displayBook() {
+  // add loop that checks if element from array has been displayed already?
   myLibrary.forEach((element) => {
     const div = document.createElement("div");
     const bookTitle = document.createElement("p");
@@ -48,22 +48,27 @@ function displayBook() {
   });
 }
 
+function removeBook() {}
+
+function toggleRead() {}
+
 // UI
 const container = document.querySelector(".container");
-const btn = document.querySelector(".addBook");
+const btnAddBook = document.querySelector(".addBook");
+const btnSubmit = document.querySelector("#btnSubmit");
+const addBookFormDiv = document.querySelector(".input-form");
+const addBookFormForm = document.querySelector("#myForm");
 
-// btn.addEventListener("click", handleClick);
-
-// function handleClick() {
-//   addBookToLibrary();
-// }
-
-btn.addEventListener("click", openForm);
+btnAddBook.addEventListener("click", openForm);
+btnSubmit.addEventListener("click", (e) => {
+  e.preventDefault();
+  getBookFromInput();
+  addBookFormDiv.style.display = "none";
+});
 
 function openForm() {
-  document.querySelector(".input-form").style.display = "block";
+  addBookFormForm.reset();
+  addBookFormDiv.style.display = "block";
 }
 
-function closeForm() {
-  document.querySelector(".input-form").style.display = "none";
-}
+// add "please fill out this field"
