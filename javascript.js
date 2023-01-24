@@ -1,3 +1,5 @@
+let myLibrary = [];
+
 function Book(title, author, pages, status) {
   this.title = title;
   this.author = author;
@@ -8,5 +10,7 @@ function Book(title, author, pages, status) {
   };
 }
 
-const book1 = new Book("Herr der Ringe", "Tolkin", 1212, "read");
-const book2 = new Book("Harry Potter", "JKR", 685, "unread");
+// const book1 = new Book("Herr der Ringe", "Tolkin", 1212, "read");
+// const book2 = new Book("Harry Potter", "JKR", 685, "unread");
+
+function 
