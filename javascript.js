@@ -52,8 +52,18 @@ function displayBook() {
 const container = document.querySelector(".container");
 const btn = document.querySelector(".addBook");
 
-btn.addEventListener("click", handleClick);
+// btn.addEventListener("click", handleClick);
 
-function handleClick() {
-  addBookToLibrary();
+// function handleClick() {
+//   addBookToLibrary();
+// }
+
+btn.addEventListener("click", openForm);
+
+function openForm() {
+  document.querySelector(".input-form").style.display = "block";
+}
+
+function closeForm() {
+  document.querySelector(".input-form").style.display = "none";
 }

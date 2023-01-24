@@ -2,6 +2,10 @@
 <html lang="en">
   <head>
     <link rel="stylesheet" href="style.css" />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link rel="stylesheet" href="style.css" />
+
     <meta charset="UTF-8" />
     <meta http-equiv="X-UA-Compatible" content="IE=edge" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
@@ -10,11 +14,23 @@
   <body>
     <header>
       <h1>Library</h1>
-      <button>Log in</button>
+      <button id="login">Log in</button>
     </header>
 
     <main>
-      <button class="addBook">Add Book</button>
+      <button class="addBook" type="submit">Add Book</button>
+      <div class="input-form">
+        <form class="form">
+          <input class="input" type="text" id="title" placeholder="Title" />
+          <input class="input" type="text" id="author" placeholder="Author" />
+          <input class="input" type="number" id="pages" placeholder="Pages" />
+          <button type="submit">Submit</button>
+          <div class="status">
+            <label>Have you read it?</label>
+            <input type="checkbox" class="checkbox" id="isRead" />
+          </div>
+        </form>
+      </div>
       <div class="container"></div>
     </main>
 
