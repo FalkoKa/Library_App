@@ -33,10 +33,14 @@ main {
   display: flex;
   flex-direction: column;
   align-items: center;
-  min-width: 800px;
+  width: 950px;
 }
 
 .container {
+  display: flex;
+  justify-content: space-between;
+  flex-wrap: wrap;
+  gap: 10px;
   width: 100%;
   height: 600px;
   /* border: 2px solid black; */
@@ -44,6 +48,11 @@ main {
 }
 
 .book-card {
+  display: flex;
+  padding: 10px 0;
+  flex-direction: column;
+  justify-content: space-between;
+  align-items: center;
   width: 300px;
   height: 300px;
   border: 2px solid black;
@@ -86,4 +95,29 @@ button[type="submit"] {
   border: 3px solid white;
   background: white;
   border-radius: 40px;
+  box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
+}
+
+.book-card p {
+  font-size: 24px;
+  margin: 15px;
+  text-align: center;
+  overflow: hidden;
+}
+
+.btn-green {
+  background: lightgreen;
+}
+
+.btn-red {
+  background: rgb(243, 115, 115);
+}
+
+button#remove-btn {
+  background: rgb(170, 30, 30);
+  color: white;
+}
+
+#remove-btn:hover {
+  background-color: red;
 }
