@@ -52,11 +52,34 @@ function displayBook() {
     div.append(bookPages);
     div.append(statusBtn);
     div.append(removeBtn);
-    console.log(test);
+
+    const buttonRem = document.querySelectorAll(".remove-btn");
+
+    buttonRem.forEach((element) => {
+      element.addEventListener("click", removeBook);
+    });
+
+    // buttonRem.forEach((element) => {
+    //   element.addEventListener("click", () => {
+    //     removeBook(test - 1);
+    //   });
+    // });
   });
 }
 
-function removeBook() {}
+function removeBook(e) {
+  let toDelete = e.target.parentElement.parentElement;
+  toDelete.innerHTML = "";
+}
+
+// function removeBook(e) {
+//   before i for index of array
+//   myLibraryInactive.splice(myLibraryInactive[i], 1);
+//   console.log(myLibraryInactive);
+//   if (e.target.classList.contains("remove-btn")) {
+//     console.log(1);
+//   }
+// }
 
 function toggleRead() {}
 
