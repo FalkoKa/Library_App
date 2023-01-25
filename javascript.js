@@ -53,11 +53,18 @@ function displayBook() {
     div.append(statusBtn);
     div.append(removeBtn);
 
-    const buttonRem = document.querySelectorAll(".remove-btn");
+    const buttonRem = document.querySelector(".remove-btn");
+    console.dir(buttonRem);
+    buttonRem.addEventListener("click", removeBook);
 
-    buttonRem.forEach((element) => {
-      element.addEventListener("click", removeBook);
-    });
+    // buttonRem.forEach((element) => {
+    //   element.addEventListener("click", removeBook);
+    //   element.addEventListener("click", () => {
+    //     console.log(myLibraryInactive);
+    //     myLibraryInactive.splice(myLibraryInactive[test], 1);
+    //     console.log(myLibraryInactive);
+    //   });
+    // });
 
     // buttonRem.forEach((element) => {
     //   element.addEventListener("click", () => {
@@ -74,8 +81,7 @@ function removeBook(e) {
 
 // function removeBook(e) {
 //   before i for index of array
-//   myLibraryInactive.splice(myLibraryInactive[i], 1);
-//   console.log(myLibraryInactive);
+
 //   if (e.target.classList.contains("remove-btn")) {
 //     console.log(1);
 //   }
