@@ -1,5 +1,6 @@
 // APP
 const myLibrary = [];
+const myLibraryInactive = [];
 
 function Book(title, author, pages, status) {
   this.title = title;
@@ -17,35 +18,40 @@ function getBookFromInput() {
 }
 
 function displayBook() {
-  // add loop that checks if element from array has been displayed already?
   myLibrary.forEach((element) => {
     const div = document.createElement("div");
     const bookTitle = document.createElement("p");
     const bookAuthor = document.createElement("p");
     const bookPages = document.createElement("p");
-    const bookStatus = document.createElement("p");
-    // const removeBtn = document.createElement("button");
+    const statusBtn = document.createElement("button");
+    const removeBtn = document.createElement("button");
 
-    // removeBtn.setAttribute("id", "remove-btn");
-    // removeBtn.textContent = "Remove";
+    removeBtn.setAttribute("class", "remove-btn");
+    statusBtn.setAttribute("class", "status-btn");
 
     container.append(div);
 
-    bookTitle.textContent = element.title;
+    bookTitle.textContent = `"${element.title}"`;
     bookAuthor.textContent = element.author;
-    bookPages.textContent = element.pages;
-    bookStatus.textContent = element.status;
+    statusBtn.textContent = `${element.pages} pages`;
+    removeBtn.textContent = "Remove";
+
+    if (element.status) {
+      statusBtn.textContent = "Read";
+      statusBtn.classList.add("btn-green");
+    } else {
+      statusBtn.textContent = "Unread";
+      statusBtn.classList.add("btn-red");
+    }
 
     div.classList.add("book-card");
     div.append(bookTitle);
     div.append(bookAuthor);
     div.append(bookPages);
-    div.append(bookStatus);
-    const bookCard = document.querySelector(".book-card");
-    // bookCard.append(removeBtn);
-
-    // removeBtn.addEventListener("click", () => div.remove(".book-card"));
+    div.append(statusBtn);
+    div.append(removeBtn);
   });
+  myLibraryInactive.push(myLibrary.pop());
 }
 
 function removeBook() {}
@@ -58,17 +64,17 @@ const btnAddBook = document.querySelector(".addBook");
 const btnSubmit = document.querySelector("#btnSubmit");
 const addBookFormDiv = document.querySelector(".input-form");
 const addBookFormForm = document.querySelector("#myForm");
+const removeBtn = document.createElement("button");
 
 btnAddBook.addEventListener("click", openForm);
 btnSubmit.addEventListener("click", (e) => {
   e.preventDefault();
   getBookFromInput();
   addBookFormDiv.style.display = "none";
+  displayBook();
 });
 
 function openForm() {
   addBookFormForm.reset();
   addBookFormDiv.style.display = "block";
 }
-
-// add "please fill out this field"
