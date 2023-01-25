@@ -19,6 +19,7 @@ function getBookFromInput() {
 
 function displayBook() {
   myLibrary.forEach((element) => {
+    let test = myLibraryInactive.push(myLibrary.pop());
     const div = document.createElement("div");
     const bookTitle = document.createElement("p");
     const bookAuthor = document.createElement("p");
@@ -27,6 +28,7 @@ function displayBook() {
     const removeBtn = document.createElement("button");
 
     removeBtn.setAttribute("class", "remove-btn");
+    removeBtn.setAttribute("data-index", `${test - 1}`);
     statusBtn.setAttribute("class", "status-btn");
 
     container.append(div);
@@ -50,8 +52,8 @@ function displayBook() {
     div.append(bookPages);
     div.append(statusBtn);
     div.append(removeBtn);
+    console.log(test);
   });
-  myLibraryInactive.push(myLibrary.pop());
 }
 
 function removeBook() {}
