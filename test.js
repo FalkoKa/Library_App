@@ -38,7 +38,7 @@ function displayBook() {
     div.setAttribute("data-index", `${test - 1}`);
     removeBtn.setAttribute("class", "remove-btn");
     statusBtn.setAttribute("class", "status-btn");
-    statusBtn.setAttribute("data-index", `${test - 1}`);
+    statusBtn.setAttribute("data-index", `${test}`);
 
     container.append(div);
 
@@ -61,17 +61,21 @@ function displayBook() {
     div.append(bookPages);
     div.append(statusBtn);
     div.append(removeBtn);
-
-    statusBtn.addEventListener("click", () => {
-      console.log(myLibraryInactive[statusBtn.dataset.index].toggle());
-    });
   });
 
   const buttonRem = document.querySelectorAll(".remove-btn");
+  const unreadBtn = document.querySelectorAll(".status-btn");
 
   buttonRem.forEach((element) => {
     element.addEventListener("click", (e) => {
       e.target.parentElement.remove();
+    });
+  });
+
+  unreadBtn.forEach((element) => {
+    element.addEventListener("click", (e) => {
+      console.log(element.dataset.index);
+      // console.log(myLibraryInactive[element.dataIndex]);
     });
   });
 }
