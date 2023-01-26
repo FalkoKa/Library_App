@@ -53,10 +53,6 @@ function displayBook() {
     div.append(statusBtn);
     div.append(removeBtn);
 
-    const buttonRem = document.querySelector(".remove-btn");
-    console.dir(buttonRem);
-    buttonRem.addEventListener("click", removeBook);
-
     // buttonRem.forEach((element) => {
     //   element.addEventListener("click", removeBook);
     //   element.addEventListener("click", () => {
@@ -66,26 +62,13 @@ function displayBook() {
     //   });
     // });
 
-    // buttonRem.forEach((element) => {
-    //   element.addEventListener("click", () => {
-    //     removeBook(test - 1);
-    //   });
-    // });
   });
-}
+  const buttonRem = document.querySelectorAll(".remove-btn");
 
-function removeBook(e) {
-  let toDelete = e.target.parentElement.parentElement;
-  toDelete.innerHTML = "";
-}
+  buttonRem.forEach((element) => {
+    element.addEventListener("click", (e) => e.target.parentElement.remove());
+  });
 
-// function removeBook(e) {
-//   before i for index of array
-
-//   if (e.target.classList.contains("remove-btn")) {
-//     console.log(1);
-//   }
-// }
 
 function toggleRead() {}
 
